@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Adigabze.Data.DTO.Sozcuk.SozcukDTO>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sözcük</th>
+            <th scope="col">Anlam</th>
+            <th scope="col">Tür</th>
+            <th scope="col">Yetkinlik</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.AnahtarId</th>
+                <td>@item.AnahtarSozcuk</td>
+                <td>@item.Anlam</td>
+                <td>@item.SozcukTuru</td>
+                <td>@item.Yetkinlik</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

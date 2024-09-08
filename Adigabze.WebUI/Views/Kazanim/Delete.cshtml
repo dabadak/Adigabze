@@ -1,0 +1,14 @@
+﻿@model Kazanim
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>
+    Kaydı Silmek İstediğinize Emin Misiniz?
+</h1>
+
+<form asp-controller="Kazanim" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="KazanimId" />
+    <button type="submit" class="btn btn-primary">Onay</button>
+</form>
+

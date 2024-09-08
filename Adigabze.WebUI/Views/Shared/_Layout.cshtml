@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Адыгабзэ - Adigabze</title>
+
+    <meta name="keywords" content="Адыгабзэ, Adigabze, Çerkesçe, Çerkezce, Circassian, Dil, Öğrenim, Sözlük, Kütüphane" />
+    <meta name="description" content="Адыгабзэ - Çerkesçe Öğrenim">
+    <meta name="author" content="adigabze.com">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="~/vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/css/theme.css">
+    <link rel="stylesheet" href="~/css/theme-elements.css">
+    <link rel="stylesheet" href="~/css/theme-blog.css">
+    <link rel="stylesheet" href="~/css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="~/vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="~/vendor/rs-plugin/css/navigation.css">
+
+    <!-- Demo CSS -->
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="~/css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="~/vendor/modernizr/modernizr.min.js"></script>
+
+
+</head>
+    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Adigabze</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Wune <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Alfabe" asp-action="List">Alfabe</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tanımlar
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"  asp-controller="Yetkinlik" asp-action="List">Yetkinlikler</a>
+                                <a class="dropdown-item"  asp-controller="Unite" asp-action="List">Üniteler</a>
+                                <a class="dropdown-item"  asp-controller="Konu" asp-action="List">Konular</a>
+                                <a class="dropdown-item"  asp-controller="Kazanim" asp-action="List">Kazanımlar</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"  asp-controller="Alfabe" asp-action="List">Alfabe</a>
+                            </div>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-3">
+            @RenderBody()
+        </div>*@
+
+    <body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay data-plugin-options="{'hideDelay': 500}">
+        <div class="loading-overlay">
+            <div class="bounce-loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+
+        <div class="body">
+            <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+                <div class="header-body">
+                    <div class="header-container container">
+                        <div class="header-row">
+                            <div class="header-column">
+                                <div class="header-row">
+                                    <div class="header-logo">
+                                        <a href="index.html">
+                                            <img alt="Адыгабзэ" width="165" data-sticky-width="165" data-sticky-height="123" src="~/img/logo.png">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-column justify-content-end">
+                                <div class="header-row">
+                                    <div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border order-2 order-lg-1">
+                                        <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                            <nav class="collapse">
+                                                <ul class="nav nav-pills" id="mainNav">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle active" asp-controller="Home" asp-action="Index" style="color:#be985e;">
+                                                            унэ
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown dropdown-mega">
+                                                        <a class="dropdown-item dropdown-toggle" asp-controller="Sozcuk" asp-action="List" style="color:#be985e;">
+                                                            гушыалъ
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#" style="color:#be985e;">
+                                                            тхылъэщ
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#" style="color:#be985e;">
+                                                            гъэсэныгъэ
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+                                            <i class="fas fa-bars"></i>
+                                        </button>
+                                    </div>
+                                    <div class="header-nav-features order-1 order-lg-2">
+                                        <div class="header-nav-feature header-nav-features-social-icons d-inline-flex">
+                                            <ul class="header-social-icons social-icons d-none d-sm-block social-icons-clean ml-0">
+                                                <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div role="main" class="main">
+
+                @RenderBody()
+
+            </div>
+
+            <footer id="footer" class="border-0" style="background: url('img/parallax/parallax-8.jpg'); background-size:cover; background-position: 0 100%;">
+                <div class="container py-4">
+                    <div class="row justify-content-md-center py-5 mt-3">
+                        <div class="col-md-12 col-lg-3 d-flex align-items-center justify-content-center justify-content-lg-start mb-5 mb-lg-0">
+                            <a href="index.html"><img src="~/img/logo-dark.png" alt="Logo" class="img-fluid" style="max-width: 110px;"></a>
+                        </div>
+                        <div class="col-md-6 col-lg-2 text-center text-lg-left mb-5 mb-lg-0">
+                            <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Pages</h5>
+                            <ul class="list list-unstyled">
+                                <li class="mb-1"><a href="page-services.html" class="link-hover-style-1"> Hizmetlerimiz</a></li>
+                                <li class="mb-1"><a href="about-us.html" class="link-hover-style-1"> Hakkımızda</a></li>
+                                <li class="mb-1"><a href="contact-us.html" class="link-hover-style-1"> Bize Ulaşın</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright footer-copyright-style-2 background-transparent footer-top-light-border">
+                    <div class="container py-2">
+                        <div class="row py-4">
+                            <div class="col d-flex align-items-center justify-content-center mb-4 mb-lg-0">
+                                <p>© Copyright 2019. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Vendor -->
+        <script src="~/vendor/jquery/jquery.min.js"></script>
+        <script src="~/vendor/jquery.appear/jquery.appear.min.js"></script>
+        <script src="~/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="~/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+        <script src="~/vendor/popper/umd/popper.min.js"></script>
+        <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/vendor/common/common.min.js"></script>
+        <script src="~/vendor/jquery.validation/jquery.validate.min.js"></script>
+        <script src="~/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+        <script src="~/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+        <script src="~/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+        <script src="~/vendor/isotope/jquery.isotope.min.js"></script>
+        <script src="~/vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="~/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="~/vendor/vide/jquery.vide.min.js"></script>
+        <script src="~/vendor/vivus/vivus.min.js"></script>
+
+        <!-- Theme Base, Components and Settings -->
+        <script src="~/js/theme.js"></script>
+
+        <!-- Current Page Vendor and Views -->
+        <script src="~/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script src="~/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+        <!-- Theme Custom -->
+        <script src="~/js/custom.js"></script>
+
+        <!-- Theme Initialization Files -->
+        <script src="~/js/theme.init.js"></script>
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-160631565-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>
+

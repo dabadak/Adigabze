@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SozcukEk>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="SozcukEk" asp-action="Add" method="get">
+
+    <table>
+        <tr>
+            <th>Tipi</th>
+            <th>Türü</th>
+            <th>Ek</th>
+            <th>Tanım</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EkTipi</td>
+                <td>@item.EkTuru</td>
+                <td>@item.Ek</td>
+                <td>@item.Tanim</td>
+                <td>
+                    <a class="button btn btn-primary" asp-controller="SozcukEk" asp-action="Edit" title="Düzenle">Düzenle</a>
+                    <a class="button btn btn-danger" asp-controller="SozcukEk" asp-action="Delete" title="Sil">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <input type="submit" value="Yeni" asp-controller="SozcukEk" asp-action="Create" />
+
+</form>
+

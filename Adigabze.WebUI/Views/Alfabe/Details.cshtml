@@ -1,0 +1,24 @@
+﻿@model Harf
+@{
+    ViewData["Title"] = "Details";
+}
+
+<a asp-controller="Alfabe" asp-action="List">Alfabe</a>
+
+<br />
+
+<div class="container">
+
+    <h1>@Model.BuyukHarf, @Model.KucukHarf</h1>
+
+    <div>
+        @Html.Raw(Model.Description)
+    </div>
+
+    <br />
+
+    <div>
+        @Html.Raw(Model.Body)
+    </div>
+
+</div>

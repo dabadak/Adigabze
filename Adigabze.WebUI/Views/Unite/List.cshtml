@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Unite>
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="container mt-3">
+    <h2>Ünite Listesi</h2>
+
+    <div class="row">
+        <div class="col">
+            @if (Model.Any())
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Ünite Tanım</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.UniteId</td>
+                                <td>@item.UniteTanim</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Unite" asp-action="Edit" asp-route-id="@item.UniteId">Edit</a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Unite" asp-action="Delete" asp-route-id="@item.UniteId">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+
+</div>
+

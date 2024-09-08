@@ -1,0 +1,22 @@
+﻿@model Kazanim
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <h1>Create</h1>
+    <form asp-controller="Kazanim" asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="KonuId">Konu</label>
+            <select class="form-control" asp-for="KonuId" asp-items="ViewBag.Konular">
+                <option disabled selected value="">Konu Seçiniz...</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="KazanimTanim">Kazanım</label>
+            <input asp-for="KazanimTanim" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+

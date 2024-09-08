@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200404165619_sozluk.cs" />
+    <Compile Remove="Migrations\20200404165619_sozluk.Designer.cs" />
+    <Compile Remove="Migrations\20200409124746_sozcukHaritasi.cs" />
+    <Compile Remove="Migrations\20200409124746_sozcukHaritasi.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3"></DotNetCliToolReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Adigabze.Data\Adigabze.Data.csproj" />
+    <ProjectReference Include="..\Adigabze.Entity\Adigabze.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ajax\" />
+  </ItemGroup>
+
+</Project>

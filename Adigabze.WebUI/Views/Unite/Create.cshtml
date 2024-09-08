@@ -1,0 +1,16 @@
+﻿@model Unite
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <h1>Create</h1>
+    <form asp-controller="Unite" asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="UniteTanim">Ünite</label>
+            <input form="UniteTanim" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+
