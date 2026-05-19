@@ -39,7 +39,7 @@ namespace Adigabze.WebUI
 
             services.AddTransient<ISozcukEkRepository, EFSozcukEkRepository>();
 
-            services.AddDbContext<AdigabzeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b=>b.MigrationsAssembly("Adigabze.WebUI")));
+            services.AddDbContext<AdigabzeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc();
         }
@@ -52,14 +52,17 @@ namespace Adigabze.WebUI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStatusCodePages();
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Sozluk}/{action=List}/{id?}");
+                    pattern: "{controller=Sozluk}/{action=List}/{id?}");
             });
 
             SeedData.Seed(app);

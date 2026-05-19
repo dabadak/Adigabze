@@ -1,11 +1,9 @@
 ﻿using Adigabze.DAL.Entities;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Adigabze.Data.Concrete.EFCore
 {
@@ -13,7 +11,8 @@ namespace Adigabze.Data.Concrete.EFCore
     {
         public static void Seed(IApplicationBuilder app)
         {
-            AdigabzeContext context = app.ApplicationServices.GetRequiredService<AdigabzeContext>();
+
+            var context = app.ApplicationServices.GetRequiredService<AdigabzeContext>();
 
             context.Database.Migrate();
 
@@ -22,59 +21,59 @@ namespace Adigabze.Data.Concrete.EFCore
             //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('Konular', RESEED, 1)");
             //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('Kazanimlar', RESEED, 32)");
 
-            if (!context.Yetkinlikler.Any())
-            {
-                context.Yetkinlikler.AddRange(
+            //if (!context.Yetkinlikler.Any())
+            //{
+            //    context.Yetkinlikler.AddRange(
 
-                    new Yetkinlik() { YetkinlikTanim = "A1" },
-                    new Yetkinlik() { YetkinlikTanim = "A2" },
-                    new Yetkinlik() { YetkinlikTanim = "B1" },
-                    new Yetkinlik() { YetkinlikTanim = "B2" }
-                    );
+            //        new Yetkinlik() { YetkinlikTanim = "A1" },
+            //        new Yetkinlik() { YetkinlikTanim = "A2" },
+            //        new Yetkinlik() { YetkinlikTanim = "B1" },
+            //        new Yetkinlik() { YetkinlikTanim = "B2" }
+            //        );
 
-                context.SaveChanges();
-            }
+            //    context.SaveChanges();
+            //}
 
-            if (!context.Uniteler.Any())
-            {
-                context.Uniteler.AddRange(
-                    new Unite() { UniteTanim = "Ben ve Yakın Çevrem", YetkinlikId = 1 },
-                    new Unite() { UniteTanim = "Günlük Yaşam", YetkinlikId = 1 },
-                    new Unite() { UniteTanim = "İnsanların Görünüşleri ve Tanımlamalar", YetkinlikId = 1 },
-                    new Unite() { UniteTanim = "Zaman ve Mekân", YetkinlikId = 1 },
-                    new Unite() { UniteTanim = "Sosyal Hayat", YetkinlikId = 1 }
-                    );
+            //if (!context.Uniteler.Any())
+            //{
+            //    context.Uniteler.AddRange(
+            //        new Unite() { UniteTanim = "Ben ve Yakın Çevrem", YetkinlikId = 1 },
+            //        new Unite() { UniteTanim = "Günlük Yaşam", YetkinlikId = 1 },
+            //        new Unite() { UniteTanim = "İnsanların Görünüşleri ve Tanımlamalar", YetkinlikId = 1 },
+            //        new Unite() { UniteTanim = "Zaman ve Mekân", YetkinlikId = 1 },
+            //        new Unite() { UniteTanim = "Sosyal Hayat", YetkinlikId = 1 }
+            //        );
 
-                context.SaveChanges();
-            }
+            //    context.SaveChanges();
+            //}
 
-            if (!context.Konular.Any())
-            {
-                context.Konular.AddRange(
-                    new Konu() { KonuTanim = "Tanışma", UniteId = 1 },
-                    new Konu() { KonuTanim = "Alfabe", UniteId = 1 },
-                    new Konu() { KonuTanim = "Sayılar", UniteId = 1 },
-                    new Konu() { KonuTanim = "Kendini Tanıtma", UniteId = 1 },
-                    new Konu() { KonuTanim = "Sınıf Dili", UniteId = 2 },
-                    new Konu() { KonuTanim = "Saatler ve Rutinler", UniteId = 2 },
-                    new Konu() { KonuTanim = "Sahiplik", UniteId = 2 },
-                    new Konu() { KonuTanim = "Soru Kelimeleri", UniteId = 2 },
-                    new Konu() { KonuTanim = "Meslekler", UniteId = 3 },
-                    new Konu() { KonuTanim = "Tanımlamalar", UniteId = 3 },
-                    new Konu() { KonuTanim = "Vücudumuz", UniteId = 3 },
-                    new Konu() { KonuTanim = "Kıyafetler", UniteId = 3 },
-                    new Konu() { KonuTanim = "Yiyecekler", UniteId = 3 },
-                    new Konu() { KonuTanim = "Yaşadığımız Yer ve Çevrem", UniteId = 4 },
-                    new Konu() { KonuTanim = "Haftanın Günleri Aylar ve Mevsimler", UniteId = 4 },
-                    new Konu() { KonuTanim = "Hobiler", UniteId = 4 },
-                    new Konu() { KonuTanim = "Alışveriş", UniteId = 5 },
-                    new Konu() { KonuTanim = "Davetler", UniteId = 5 },
-                    new Konu() { KonuTanim = "Seyahat", UniteId = 5 },
-                    new Konu() { KonuTanim = "Gündelik Yaşam", UniteId = 5 }
-                    );
+            //if (!context.Konular.Any())
+            //{
+            //    context.Konular.AddRange(
+            //        new Konu() { KonuTanim = "Tanışma", UniteId = 1 },
+            //        new Konu() { KonuTanim = "Alfabe", UniteId = 1 },
+            //        new Konu() { KonuTanim = "Sayılar", UniteId = 1 },
+            //        new Konu() { KonuTanim = "Kendini Tanıtma", UniteId = 1 },
+            //        new Konu() { KonuTanim = "Sınıf Dili", UniteId = 2 },
+            //        new Konu() { KonuTanim = "Saatler ve Rutinler", UniteId = 2 },
+            //        new Konu() { KonuTanim = "Sahiplik", UniteId = 2 },
+            //        new Konu() { KonuTanim = "Soru Kelimeleri", UniteId = 2 },
+            //        new Konu() { KonuTanim = "Meslekler", UniteId = 3 },
+            //        new Konu() { KonuTanim = "Tanımlamalar", UniteId = 3 },
+            //        new Konu() { KonuTanim = "Vücudumuz", UniteId = 3 },
+            //        new Konu() { KonuTanim = "Kıyafetler", UniteId = 3 },
+            //        new Konu() { KonuTanim = "Yiyecekler", UniteId = 3 },
+            //        new Konu() { KonuTanim = "Yaşadığımız Yer ve Çevrem", UniteId = 4 },
+            //        new Konu() { KonuTanim = "Haftanın Günleri Aylar ve Mevsimler", UniteId = 4 },
+            //        new Konu() { KonuTanim = "Hobiler", UniteId = 4 },
+            //        new Konu() { KonuTanim = "Alışveriş", UniteId = 5 },
+            //        new Konu() { KonuTanim = "Davetler", UniteId = 5 },
+            //        new Konu() { KonuTanim = "Seyahat", UniteId = 5 },
+            //        new Konu() { KonuTanim = "Gündelik Yaşam", UniteId = 5 }
+            //        );
 
-                context.SaveChanges();
-            }
+            //    context.SaveChanges();
+            //}
 
             if (!context.Diller.Any())
             {
