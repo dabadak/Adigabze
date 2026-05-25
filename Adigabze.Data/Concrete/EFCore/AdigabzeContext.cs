@@ -15,6 +15,9 @@ namespace Adigabze.Data.Concrete.EFCore
 
         public DbSet<Parent> Parents {  get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<ImageEvaluation> ImageEvaluations { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
         public DbSet<Yetkinlik> Yetkinlikler { get; set; }
         public DbSet<Unite> Uniteler { get; set; }

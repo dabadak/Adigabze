@@ -5,7 +5,7 @@
 namespace Adigabze.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,6 +57,40 @@ namespace Adigabze.Data.Migrations
                         column: x => x.UstId,
                         principalTable: "Ekler",
                         principalColumn: "SozcukEkId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Parents",
+                columns: table => new
+                {
+                    ParentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Magnitute = table.Column<int>(type: "int", nullable: false),
+                    Scale = table.Column<int>(type: "int", nullable: false),
+                    Evaluation = table.Column<byte>(type: "tinyint", nullable: false),
+                    FileNameO = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Parents", x => x.ParentId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EMail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,6 +167,46 @@ namespace Adigabze.Data.Migrations
                         column: x => x.DilId,
                         principalTable: "Diller",
                         principalColumn: "DilId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    ImageId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ParentId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.ImageId);
+                    table.ForeignKey(
+                        name: "FK_Images_Parents_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "Parents",
+                        principalColumn: "ParentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ImageEvaluations",
+                columns: table => new
+                {
+                    ImageEvaluationId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Evaluation = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ImageEvaluations", x => x.ImageEvaluationId);
+                    table.ForeignKey(
+                        name: "FK_ImageEvaluations_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -266,6 +340,16 @@ namespace Adigabze.Data.Migrations
                 column: "UstId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ImageEvaluations_UserId",
+                table: "ImageEvaluations",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_ParentId",
+                table: "Images",
+                column: "ParentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Kazanimlar_KonuId",
                 table: "Kazanimlar",
                 column: "KonuId");
@@ -316,6 +400,12 @@ namespace Adigabze.Data.Migrations
                 name: "Ekler");
 
             migrationBuilder.DropTable(
+                name: "ImageEvaluations");
+
+            migrationBuilder.DropTable(
+                name: "Images");
+
+            migrationBuilder.DropTable(
                 name: "Kazanimlar");
 
             migrationBuilder.DropTable(
@@ -326,6 +416,12 @@ namespace Adigabze.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sulaleler");
+
+            migrationBuilder.DropTable(
+                name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Parents");
 
             migrationBuilder.DropTable(
                 name: "Konular");

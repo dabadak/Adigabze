@@ -11,17 +11,17 @@ namespace Adigabze.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private IYetkinlikRepository yetkinlikRepository;
-        private IUniteRepository uniteRepository;
+        //private IYetkinlikRepository yetkinlikRepository;
+        //private IUniteRepository uniteRepository;
 
-        public HomeController(IUniteRepository repository)
+        public HomeController()
         {
-            uniteRepository = repository;
+
         }
 
         public IActionResult Index()
         {
-            return View(uniteRepository.GetAll());
+            return View();
         }
     }
 }

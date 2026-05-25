@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Adigabze.Data.Concrete.EFCore
 {
-    internal class EFParentRepository : EFGenericRepository<Parent>, IParentRepository
+    public class EFParentRepository : EFGenericRepository<Parent>, IParentRepository
     {
         public EFParentRepository(AdigabzeContext context) : base(context)
         {
@@ -17,7 +17,7 @@ namespace Adigabze.Data.Concrete.EFCore
 
         public AdigabzeContext AdigabzeContext 
         {
-            get { return _ctx as AdigabzeContext }
+            get { return _ctx as AdigabzeContext; }
         }
     }
 }

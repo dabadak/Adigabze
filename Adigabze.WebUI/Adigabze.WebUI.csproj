@@ -6,23 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200404165619_sozluk.cs" />
-    <Compile Remove="Migrations\20200404165619_sozluk.Designer.cs" />
-    <Compile Remove="Migrations\20200409124746_sozcukHaritasi.cs" />
-    <Compile Remove="Migrations\20200409124746_sozcukHaritasi.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Adigabze.Data\Adigabze.Data.csproj" />
     <ProjectReference Include="..\Adigabze.Entity\Adigabze.DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\ajax\" />
+    <Folder Include="wwwroot\img\sem\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>

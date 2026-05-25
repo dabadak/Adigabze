@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Adigabze.Data.Abstract
 {
-    internal interface IParentRepository : IGenericRepository<Parent>
+    public interface IParentRepository : IGenericRepository<Parent>
     {
     }
 }

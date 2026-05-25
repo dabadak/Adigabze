@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace Adigabze.DAL.Entities
 {
-    public class Image
+    public class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Column(Order = 0)]
-        public int ImageId { get; set; }
-        public string ImageName { get; set; }
-        public int ParentId { get; set; }
-        [ForeignKey("ParentId")]
-        public Parent Parent { get; set; }
-
+        public int UserId { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string EMail { get; set; }
+        public string Password { get; set; }
     }
 }

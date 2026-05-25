@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace Adigabze.DAL.Enums
 {
@@ -97,4 +100,33 @@ namespace Adigabze.DAL.Enums
         [Display(Name = "Çekim Eki")]
         CekimEki = 2,
     }
+
+    public enum Evaluation
+    {
+        [Display(Name = "Kötü")]
+        Kotu = 1,
+        [Display(Name = "Orta")]
+        Orta = 2,
+        [Display(Name = "İyi")]
+        Iyi = 2,
+    }
+
+
+    public static class EnumExtensions
+    {
+        public static string GetDescription(this Enum enumValue)
+        {
+            FieldInfo fi = enumValue.GetType().GetField(enumValue.ToString());
+
+            DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            if (attributes != null && attributes.Length > 0)
+            {
+                return attributes[0].Description;
+            }
+
+            return enumValue.ToString();
+        }
+    }
+
 }

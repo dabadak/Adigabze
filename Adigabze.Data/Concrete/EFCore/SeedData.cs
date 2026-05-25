@@ -9,12 +9,8 @@ namespace Adigabze.Data.Concrete.EFCore
 {
     public static class SeedData
     {
-        public static void Seed(IApplicationBuilder app)
+        public static void Seed(AdigabzeContext context)
         {
-
-            var context = app.ApplicationServices.GetRequiredService<AdigabzeContext>();
-
-            context.Database.Migrate();
 
             //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('Yetkinlikler', RESEED, 1)");
             //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('Uniteler', RESEED, 1)");
@@ -74,6 +70,15 @@ namespace Adigabze.Data.Concrete.EFCore
 
             //    context.SaveChanges();
             //}
+
+            if (!context.Users.Any())
+            {
+                context.Users.AddRange(
+                    new User() { Name = "Mehmet", Surname = "UYSAL", EMail = "mehmetu@sakarya.edu.tr", Password = "1" },
+                    new User() { Name = "Harun", Surname = "GÜL", EMail = "harungul@subu.edu.tr", Password = "1" },
+                    new User() { Name = "Ramazan", Surname = "KARSLIOĞLU", EMail = "rkarslioglu@aybu.edu.tr", Password = "1" }
+                    );
+            }
 
             if (!context.Diller.Any())
             {
@@ -159,10 +164,10 @@ namespace Adigabze.Data.Concrete.EFCore
                 context.SaveChanges();
             }
 
-            //if(!context.SozcukTurleri.Any())
+            //if (!context.SozcukTurleri.Any())
             //{
             //    context.SozcukTurleri.AddRange(
-            //            new SozcukTur() {  SozcukTuru ="İsim"},
+            //            new SozcukTur() { SozcukTuru = "İsim" },
             //            new SozcukTur() { SozcukTuru = "Sıfat" },
             //            new SozcukTur() { SozcukTuru = "Zamir" },
             //            new SozcukTur() { SozcukTuru = "Zarf" },
@@ -178,7 +183,7 @@ namespace Adigabze.Data.Concrete.EFCore
             //{
             //    context.Boylar.AddRange(
 
-            //        new Boy() { BoyAdi = "Abzeh", DilId=1 },
+            //        new Boy() { BoyAdi = "Abzeh", DilId = 1 },
             //        new Boy() { BoyAdi = "Adamey", DilId = 1 },
             //        new Boy() { BoyAdi = "Barakay", DilId = 1 },
             //        new Boy() { BoyAdi = "Besleney", DilId = 1 },

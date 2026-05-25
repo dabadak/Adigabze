@@ -111,6 +111,50 @@ namespace Adigabze.Data.Migrations
                     b.ToTable("Alfabe");
                 });
 
+            modelBuilder.Entity("Adigabze.DAL.Entities.Image", b =>
+                {
+                    b.Property<int>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageId"));
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImageId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Adigabze.DAL.Entities.ImageEvaluation", b =>
+                {
+                    b.Property<int>("ImageEvaluationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageEvaluationId"));
+
+                    b.Property<int>("Evaluation")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImageEvaluationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ImageEvaluations");
+                });
+
             modelBuilder.Entity("Adigabze.DAL.Entities.Kazanim", b =>
                 {
                     b.Property<int>("KazanimId")
@@ -175,6 +219,38 @@ namespace Adigabze.Data.Migrations
                     b.HasIndex("DilId");
 
                     b.ToTable("Lehce");
+                });
+
+            modelBuilder.Entity("Adigabze.DAL.Entities.Parent", b =>
+                {
+                    b.Property<int>("ParentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ParentId"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("Evaluation")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileNameO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Magnitute")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Scale")
+                        .HasColumnType("int");
+
+                    b.HasKey("ParentId");
+
+                    b.ToTable("Parents");
                 });
 
             modelBuilder.Entity("Adigabze.DAL.Entities.Sozcuk", b =>
@@ -284,6 +360,32 @@ namespace Adigabze.Data.Migrations
                     b.ToTable("Uniteler");
                 });
 
+            modelBuilder.Entity("Adigabze.DAL.Entities.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("EMail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("Adigabze.DAL.Entities.Yetkinlik", b =>
                 {
                     b.Property<int>("YetkinlikId")
@@ -320,6 +422,28 @@ namespace Adigabze.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Dil");
+                });
+
+            modelBuilder.Entity("Adigabze.DAL.Entities.Image", b =>
+                {
+                    b.HasOne("Adigabze.DAL.Entities.Parent", "Parent")
+                        .WithMany("Images")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("Adigabze.DAL.Entities.ImageEvaluation", b =>
+                {
+                    b.HasOne("Adigabze.DAL.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Adigabze.DAL.Entities.Kazanim", b =>
@@ -424,6 +548,11 @@ namespace Adigabze.Data.Migrations
             modelBuilder.Entity("Adigabze.DAL.Entities.Konu", b =>
                 {
                     b.Navigation("Kazanimlar");
+                });
+
+            modelBuilder.Entity("Adigabze.DAL.Entities.Parent", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("Adigabze.DAL.Entities.Unite", b =>

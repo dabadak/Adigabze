@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Adigabze.Data.DTO.SEM.ParentDTO>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">FileName</th>
+            <th scope="col">Magnitute</th>
+            <th scope="col">Ölçek</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ParentId</th>
+                <td>@item.FileName</td>
+                <td>@item.Magnitute</td>
+                <td>@item.Scale</td>
+                <td>@item.Description</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
